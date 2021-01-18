@@ -17,11 +17,17 @@ class Snake:
 
     def create_snake(self):
         for position in START_POSITIONS:
-            caspar = Turtle(shape="turtle")
-            caspar.color("white")
-            caspar.penup()
-            caspar.goto(position)
-            self.caspar_body.append(caspar)
+            self.add_caspar(position)
+
+    def add_caspar(self, position):
+        caspar = Turtle(shape="turtle")
+        caspar.color("white")
+        caspar.penup()
+        caspar.goto(position)
+        self.caspar_body.append(caspar)
+
+    def extend(self):
+        self.add_caspar(self.caspar_body[-1].position())
 
     def move(self):
         for cas_num in range(len(self.caspar_body) - 1, 0, -1):
